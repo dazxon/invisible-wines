@@ -1,29 +1,36 @@
 const nodemailer = require("nodemailer");
 require("dotenv").config();
+const { EMAIL_EMAIL, EMAIL_PASSWORD, EMAIL_SMTP } = process.env;
 
-// Configura el transporte de Nodemailer (cambia los valores)
 const transporter = nodemailer.createTransport({
-  host: "mail.privateemail.com",
+  host: EMAIL_SMTP,
   auth: {
-    user: process.env.EMAIL_EMAIL,
-    pass: process.env.EMAIL_PASSWORD,
+    user: EMAIL_EMAIL,
+    pass: EMAIL_PASSWORD,
   },
 });
 
-// Ruta para enviar un correo electrónico
-const sendEmail = (email, subject, text) => {
+/**
+ * Send an email using the configured transporter.
+ *
+ * @param {string} email - The recipient's email address.
+ * @param {string} subject - The subject of the email.
+ * @param {string} text - The plain text content of the email.
+ * @returns {void}
+ */
+const sendEmail = (email, subject, html) => {
   const mailOptions = {
-    from: process.env.EMAIL_EMAIL,
+    from: EMAIL_EMAIL,
     to: email,
     subject: subject,
-    text: text,
+    html: html,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.error("Error al enviar el correo:", error);
+      console.error("Error", error.message);
     } else {
-      console.log("Correo enviado:", info.response);
+      console.log(`Email sended to: ${email}`, info.response);
     }
   });
 };
