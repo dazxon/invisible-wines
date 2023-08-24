@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-//
 const phoneSchema = new mongoose.Schema(
   {
     type: { type: String },
@@ -17,6 +16,5 @@ const phoneSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-//
 
 module.exports = phoneSchema;

@@ -10,6 +10,14 @@ const absolutePath = path.resolve(
 );
 const { BASE_URL } = process.env;
 
+/**
+ * Registers a new user with the provided data, sends a confirmation email, and handles errors.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} A response indicating the result of the registration process.
+ * @throws {Error} If a server error occurs during the process.
+ */
 const userRegister = async (req, res) => {
   const { email } = req.body;
   let user = await UserModel.findOne({ email });

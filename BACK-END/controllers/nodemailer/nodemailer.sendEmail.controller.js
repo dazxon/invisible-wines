@@ -30,7 +30,7 @@ const sendEmail = (email, subject, html) => {
     if (error) {
       console.error("Error", error.message);
     } else {
-      console.log(`Email sended to: ${email}`, info.response);
+      console.log(`Email sent to: ${email}`, info.response);
     }
   });
 };

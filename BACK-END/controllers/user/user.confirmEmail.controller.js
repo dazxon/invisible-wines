@@ -1,6 +1,15 @@
 const UserModel = require("../../schemas/User.schema");
 const { decrypt } = require("../../utils/crypto");
 
+/**
+ * Confirms the user's email address based on the provided encrypted token.
+ * Marks the user's email as validated in the database.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} A response indicating the result of the confirmation.
+ * @throws {Error} If a server error occurs during the process.
+ */
 const userConfirmEmail = async (req, res) => {
   const { encrypted } = req.params;
   try {

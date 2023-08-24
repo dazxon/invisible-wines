@@ -1,5 +1,13 @@
 const UserModel = require("../../schemas/User.schema");
 
+/**
+ * Edits the user's profile based on the provided data using the user's cookie authentication.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} A response containing the updated user's profile.
+ * @throws {Error} If a server error occurs during the process.
+ */
 const userEditByCookie = async (req, res) => {
   try {
     const userId = req.user._id;

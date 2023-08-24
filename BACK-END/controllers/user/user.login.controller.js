@@ -1,6 +1,14 @@
 const { generateToken } = require("../../config/tokens");
 const UserModel = require("../../schemas/User.schema");
 
+/**
+ * Logs in a user based on the provided email and password.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} A response containing user data and an authentication token.
+ * @throws {Error} If a server error occurs during the process.
+ */
 const userLogin = async (req, res) => {
   try {
     const { email, password } = req.body;
