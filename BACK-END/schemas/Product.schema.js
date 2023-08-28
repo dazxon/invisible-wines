@@ -12,6 +12,10 @@ const ProductSchema = new mongoose.Schema(
     image: String,
     images: [String],
     available_quantity: Number,
+    deleted: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,

@@ -1,5 +1,5 @@
-const ProductModel = require("../../schemas/Product.schema");
-const WineModel = require("../../schemas/Wine.schema");
+const ProductModel = require("../../../schemas/Product.schema");
+const WineModel = require("../../../schemas/Wine.schema");
 
 const wineCreate = async (req, res) => {
   const { barcode } = req.body;
